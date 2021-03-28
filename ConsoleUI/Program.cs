@@ -17,10 +17,20 @@ namespace ConsoleUI
 
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(product.ProductName +"/"+product.CategoryName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                }
             }
+            else
+            { 
+                Console.WriteLine(result.Message); 
+            }
+
+           
 
         }
 
@@ -35,34 +45,34 @@ namespace ConsoleUI
 
         private static void Test()
         {
-            ProductManager productManager = new ProductManager(new EfProductDal());
+            //ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetAll())
-            {
-                Console.WriteLine(product.ProductName);
-            }
+            //foreach (var product in productManager.GetAll())
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
 
-            Console.WriteLine("-----------------------------------");
+            //Console.WriteLine("-----------------------------------");
 
-            foreach (var product in productManager.GetAllByCategoryId(2))
-            {
-                Console.WriteLine(product.ProductName);
-            }
+            //foreach (var product in productManager.GetAllByCategoryId(2))
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
 
-            Console.WriteLine("-----------------------------------");
+            //Console.WriteLine("-----------------------------------");
 
-            foreach (var product in productManager.GetByUnitPrice(50, 100))
-            {
-                Console.WriteLine(product.ProductName);
-            }
+            //foreach (var product in productManager.GetByUnitPrice(50, 100))
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
 
-            Console.WriteLine("-----------------------------------");
+            //Console.WriteLine("-----------------------------------");
 
-            PersonnelManager personnelManager = new PersonnelManager(new EfPersonnelDal());
-            foreach (var personnel in personnelManager.GetAll())
-            {
-                Console.WriteLine(personnel.Name);
-            }
+            //PersonnelManager personnelManager = new PersonnelManager(new EfPersonnelDal());
+            //foreach (var personnel in personnelManager.GetAll())
+            //{
+            //    Console.WriteLine(personnel.Name);
+            //}
         }
     }
 }
