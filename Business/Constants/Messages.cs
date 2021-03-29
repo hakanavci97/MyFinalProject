@@ -9,6 +9,6 @@ namespace Business.Constans
         public static string ProductAdded = "Ürün Eklendi";
         public static string ProductNameInvalid = "Ürün İsmin geçersiz";
         public static string ProductListed = "Ürün listelendi";
-        public static string MaintenanceTime = "Sistem bakımda";
+        public static string MaintenanceTime = "Sistem bakımda.";
     }
 }
